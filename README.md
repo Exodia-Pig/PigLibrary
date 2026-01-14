@@ -4,6 +4,6 @@
 
 ## 목록
 - 이펙티브 코틀린
-- 객체지향 사실과 오해
+- [객체지향 사실과 오해](https://github.com/Exodia-Pig/PigLibrary/tree/main/%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%20%EC%82%AC%EC%8B%A4%EA%B3%BC%20%EC%98%A4%ED%95%B4)
 - 오브젝트
 - 좋은코드 나쁜코드
