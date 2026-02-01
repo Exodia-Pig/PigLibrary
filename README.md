@@ -11,3 +11,4 @@
 ### 일반적인 개발 원론
 - 좋은코드 나쁜코드
 ### CS
+- [운영체제(공룡책)](https://github.com/Exodia-Pig/PigLibrary/tree/main/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C(%EA%B3%B5%EB%A3%A1%EC%B1%85))
