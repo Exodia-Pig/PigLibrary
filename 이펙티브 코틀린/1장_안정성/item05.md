@@ -38,3 +38,126 @@ fast-fail / fail-safe인거 같다.
 
 
 ### contract
+갑자기 예시에 띡하고 나오는데 스마트 캐스팅을 직접 다루기위해서 사용하는 키워드이다.  
+
+생각보다 이런것들 적용해서 공통코드를 구성해놓으면 사내에서 거부감이 많았는데  
+우리 회사가 워낙 보수적이라 그런건가 싶기도 하고 다른 회사들은 어떤지 모르겠다.  
+(유틸코드가 반대인거라면 나도 동의한다. SRP에 위배되기 쉬워서 개인적으로 유틸은 엄청난 고민과 번뇌속에서 만들어져야한다고 생각한다.)  
+
+근데 어쩃든 이거 맨날쓰는게 아니라 너무 맨날 헷갈리고 귀찮아서 클로드한테 또 학습자료 만들어와 시켰다 ㅎㅎ  
+그냥 스마트 캐스팅 직접만들어야겠다 불편하다 싶으면 와서 보고 만들면된다.  
+
+<details>
+<summary>contract 설명</summary>
+
+# Kotlin Contract 설명
+
+Contract는 컴파일러에게 "이 함수가 이렇게 동작한다"는 추가 정보를 제공해서, 컴파일러가 더 똑똑하게 스마트 캐스팅이나 변수 초기화 분석을 할 수 있게 해주는 기능입니다.
+
+## 1. Returns Contract (조건부 반환)
+
+스마트 캐스팅이 함수 경계를 넘어서도 작동하게 해줍니다.
+
+```kotlin
+import kotlin.contracts.*
+
+@OptIn(ExperimentalContracts::class)
+fun String?.isNotNullOrEmpty(): Boolean {
+    contract {
+        returns(true) implies (this@isNotNullOrEmpty != null)
+    }
+    return this != null && this.isNotEmpty()
+}
+
+fun main() {
+    val name: String? = getName()
+
+    if (name.isNotNullOrEmpty()) {
+        // contract 덕분에 여기서 name이 String으로 스마트 캐스팅됨
+        println(name.length)  // 안전하게 호출 가능
+    }
+}
+```
+
+**Contract 없이는?** 컴파일러가 `isNotNullOrEmpty()` 내부 로직을 모르기 때문에 스마트 캐스팅이 안 됩니다.
+
+## 2. 타입 체크 함수
+
+```kotlin
+@OptIn(ExperimentalContracts::class)
+fun Any?.isString(): Boolean {
+    contract {
+        returns(true) implies (this@isString is String)
+    }
+    return this is String
+}
+
+fun process(value: Any?) {
+    if (value.isString()) {
+        // String으로 스마트 캐스팅
+        println(value.uppercase())
+    }
+}
+```
+
+## 3. CallsInPlace Contract (람다 호출 보장)
+
+람다가 정확히 몇 번 호출되는지 컴파일러에게 알려줍니다.
+
+```kotlin
+@OptIn(ExperimentalContracts::class)
+inline fun <R> myRun(block: () -> R): R {
+    contract {
+        callsInPlace(block, InvocationKind.EXACTLY_ONCE)
+    }
+    return block()
+}
+
+fun example() {
+    val x: Int
+    myRun {
+        x = 10  // contract 덕분에 초기화 보장됨
+    }
+    println(x)  // 컴파일 OK
+}
+```
+
+**InvocationKind 옵션:**
+
+| 옵션            | 설명                |
+| --------------- | ------------------- |
+| `EXACTLY_ONCE`  | 정확히 1번          |
+| `AT_LEAST_ONCE` | 1번 이상            |
+| `AT_MOST_ONCE`  | 0번 또는 1번        |
+| `UNKNOWN`       | 알 수 없음 (기본값) |
+
+## 4. 실용적인 예시: require/check 패턴
+
+```kotlin
+@OptIn(ExperimentalContracts::class)
+fun requireNotNull(value: Any?, message: String): Unit {
+    contract {
+        returns() implies (value != null)
+    }
+    if (value == null) throw IllegalArgumentException(message)
+}
+
+fun processUser(user: User?) {
+    requireNotNull(user, "User must not be null")
+    // 여기서부터 user는 non-null로 스마트 캐스팅
+    println(user.name)
+}
+```
+
+## 주의사항
+
+1. **`@OptIn(ExperimentalContracts::class)`** 필요 (아직 실험적 기능)
+2. Contract는 함수 본문의 **맨 처음**에 선언해야 함
+3. 컴파일러는 contract를 **검증하지 않음** - 거짓 contract를 작성하면 런타임 오류 발생
+4. 주로 **inline 함수**와 함께 사용
+
+## 표준 라이브러리의 Contract 활용 함수들
+
+`require()`, `check()`, `requireNotNull()`, `checkNotNull()`, `run()`, `let()`, `apply()` 등이 내부적으로 contract를 사용합니다.
+
+</details>
