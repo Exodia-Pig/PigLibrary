@@ -1,4 +1,6 @@
 ## 객체지향 사실과 오해 스터디
+[교보문고 링크](https://product.kyobobook.co.kr/detail/S000001628109)
+![책 표지 이미지](https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788998139766.jpg)
 
 ### 시작 동기
 우테코진행 중 우테코 권장도서 1순위 책을 스터디로 진행

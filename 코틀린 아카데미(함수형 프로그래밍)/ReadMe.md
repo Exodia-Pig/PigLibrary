@@ -1,6 +1,6 @@
 ## 코틀린 아카데미(함수형 프로그래밍)
-
-
+[교보문고 링크](https://product.kyobobook.co.kr/detail/S000214145193)
+![책 표지 이미지](https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788966264445.jpg)
 
 ### 시작 동기
 함수형 프로그래밍을 학습하고싶은 계기가 자꾸 생겨서 우선 코틀린으로 간단하게 알아보기위해 스터디 시작  
