@@ -1,5 +1,6 @@
 ## 이펙티브 코틀린 스터디
-[교보문고 링크](https://product.kyobobook.co.kr/detail/S000001033129)
+[교보문고 링크](https://product.kyobobook.co.kr/detail/S000001033129)  
+
 ![책 표지 이미지](https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788966263370.jpg)
 
 ### 시작 동기
