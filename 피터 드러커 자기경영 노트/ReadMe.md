@@ -1,6 +1,6 @@
-## 피터 드러커 자기경영 노트
-[교보문고 링크](https://product.kyobobook.co.kr/detail/S000000695925)
-![책 표지 이미지](https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788947545143.jpg)
+## 피터 드러커 자기경영 노트  
+[교보문고 링크](https://product.kyobobook.co.kr/detail/S000000695925)  
+![책 표지 이미지](https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788947545143.jpg)   
 
 ### 시작 동기
 파트장 진급 후 사내 관리자 스터디를 진행하며 읽게 되었다.  
