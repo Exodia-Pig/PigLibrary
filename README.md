@@ -13,4 +13,4 @@
 ### CS
 - [운영체제(공룡책)](https://github.com/Exodia-Pig/PigLibrary/tree/main/%EC%9A%B4%EC%98%81%EC%B2%B4%EC%A0%9C(%EA%B3%B5%EB%A3%A1%EC%B1%85))
 ### 관리,매니징
-- [피터 드러커 자기 경영 노트](https://github.com/Exodia-Pig/PigLibrary/blob/main/%ED%94%BC%ED%84%B0%20%EB%93%9C%EB%9F%AC%EC%BB%A4%20%EC%9E%90%EA%B8%B0%EA%B2%BD%EC%98%81%20%EB%85%B8%ED%8A%B8/ReadMe.md)
+- [피터 드러커 자기 경영 노트](https://github.com/Exodia-Pig/PigLibrary/tree/main/%ED%94%BC%ED%84%B0%20%EB%93%9C%EB%9F%AC%EC%BB%A4%20%EC%9E%90%EA%B8%B0%EA%B2%BD%EC%98%81%20%EB%85%B8%ED%8A%B8)
